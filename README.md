@@ -83,9 +83,13 @@ to a package repository, e.g. for [Debian](https://wiki.debian.org/DebianReposit
 # All keys except 'profiles' are optional and will be auto-detected if possible
 language: cpp # or: cpp17, python, python2, python3
 
-package: deb # or: cmake
+packages:
+- deb
+- rpm
+- cmake
 
-type: library # or: header-library, static-library, dynamic-library, executable
+assembly?/type?/mode?/module?: library
+# or: header-library, static-library, dynamic-library, executable
 
 name: lorem-ipsum
 
@@ -117,7 +121,20 @@ profiles:
   - GitLab/GitHub-based development work flow (Fork & Merge, CI)
   - be happy about extensions, e.g. languages, profiles, ...
   - internals may change at any time
-
+* minimal feature set which is required for automatic code artifact management
+  - only common features across source code and package managers are supported,
+    e.g. `name`, `dependencies`
+  - no optional dependencies (?), e.g.
+    [`Recommends` or `Suggests` in Debian](
+     https://www.debian.org/doc/debian-policy/ch-relationships.html),
+    [`Weak Dependencies` in Fedora](
+     https://fedoraproject.org/wiki/Packaging:WeakDependencies) or
+    [`Recommends` and `Suggests` in SUSE (>=10)](
+     https://en.opensuse.org/openSUSE:Build_Service_cross_distribution_howto).
+    Reasons:
+    + support and implementation not consistent (?)
+    + [`Optional dependencies don’t work`](
+       https://michael.stapelberg.ch/posts/2019-05-23-optional-dependencies/)
 
 ## Getting Involved
 
