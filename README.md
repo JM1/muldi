@@ -1,5 +1,5 @@
 [//]: # (kate: space-indent on; indent-width 2; word-wrap-column 100; word-wrap on;)
-[//]: # (kate: remove-trailing-space on;)
+[//]: # (kate: remove-trailing-spaces modified;)
 
 # `muldi` - multi distribution package generator
 
